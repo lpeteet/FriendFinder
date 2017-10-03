@@ -45,13 +45,9 @@ function findMatch(newFriend) {
     return bestName;
 }
 
-  // API POST Requests
-  // Below code handles when a user submits a form and thus submits data to the server.
-  // In each of the below cases, when a user submits form data (a JSON object)
-  // ...the JSON is pushed to the appropriate JavaScript array
-  // (ex. User fills out a reservation request... this data is then sent to the server...
-  // Then the server saves the data to the tableData array)
-  // ---------------------------------------------------------------------------
+    // API POST Requests
+    // Below code handles when a user submits a form and thus submits data to the server.
+    // ---------------------------------------------------------------------------
 
     app.post("/api/friends", function(req, res) {
         console.log("app/post /api/friends Called. req.body", req.body);
@@ -73,7 +69,25 @@ function findMatch(newFriend) {
         friendsData.push(req.body);
         console.log("friendsData After Pushing New Person", friendsData);
         res.json(bestFriend);
+
+        //Write out friendsData Object Array to the original file
+        var fs = require("fs");
+
+        var resultHandler = function(err) { 
+            if(err) {
+               console.log("unlink failed", err);
+            } else {
+               console.log("file deleted");
+            }
+        }
+        
+        console.log("about to call unlink");
+        fs.unlink('"../data/friends.js"', resultHandler);
+        console.log("called unlink");        
             
+        fs.writeFileSync('../data/friends.js', JSON.stringify(friendsData, null, 4));
+        console.log("Wrote friendsData to '../data/friends.js'");
+           
     });
 
 };
