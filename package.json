@@ -1,0 +1,24 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Friend Finder Dating App (Homework Week7 - Tuesday)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lpeteet/FriendFinder.git"
+  },
+  "author": "Larry S. Peteet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lpeteet/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/lpeteet/FriendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chosen": "0.0.2",
+    "express": "^4.16.1"
+  }
+}
